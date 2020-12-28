@@ -1,0 +1,27 @@
+{% extends 'common/site.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">{% endblock %}
+{% block title %}{% endblock %}
+
+{% block site_content %}
+    <div class="root">
+        <div class="content"><h1></h1></div>
+        <div class="forms">
+            <h2>Log in:</h2>
+            <form method="post">
+                {% csrf_token %}
+                <br>
+                {{ error }}
+                {{ form.errors }}
+                {{ form }}
+
+                <button class="button-success button">Login</button>
+            </form>
+            <span>or</span>
+            <br>
+            <br>
+            <a href="{% url 'user register' %}" style="color: white">Join Us</a>
+        </div>
+    </div>
+{% endblock %}

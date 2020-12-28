@@ -13,12 +13,33 @@
             <li>
                 <a title="News Tech" href="{% url 'blog' %}">Tech Blog</a>
             </li>
-            <li>
-                <a title="About" href="{% url 'forum' %}">Forum</a>
-            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a title="Forum" href="{% url 'forum' %}">Forum</a>
+                </li>
+            {% else %}
+                <li>
+                    <a title="Forum" href="{% url 'login user' %}">Forum</a>
+                </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <li>
+                    <a title="Profile" href="{% url 'profile' user.id %}">Profile</a>
+                </li>
+            {% endif %}
+
             <li>
                 <a title="About" href="{% url 'about' %}">About</a>
             </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a title="Log out" href="{% url 'logout user' %}">Logout</a>
+                </li>
+            {% else %}
+                <li>
+                    <a title="Log in" href="{% url 'login user' %}">Login</a>
+                </li>
+            {% endif %}
         </ul>
         <div class="burger">
             <div class="line1"></div>

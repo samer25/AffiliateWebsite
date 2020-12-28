@@ -1,0 +1,44 @@
+{% extends 'common/site.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
+
+
+{% block title %}Profile{% endblock %}
+{% block site_content %}
+    <div class="root">
+        <div class="content">
+            <div class="profile">
+
+                <h1>{{ user_profile.profile.name }}</h1>
+
+                <img class="profile-pic" src="{{ user_profile.profile.profile_pic.url }}"
+                     alt="profile image">
+                <br>
+                <h3>Bio:</h3>
+
+                <p class="bio">{{ user_profile.profile.bio }}</p>
+
+                {% if user_profile.id == pk %}
+                    <div class="buttons-align">
+                        <br>
+                        <div class="edit-button">
+                            <a class="button-success" href="{% url 'edit profile' pk %}">
+                                Edit</a>
+                        </div>
+                        <div class="delete-button">
+                            <a class="button-error" href="{% url 'delete profile' pk %}">
+                                Delete</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    {% block script %}
+        <script src="{% static 'js/posts.js' %}"></script>
+    {% endblock %}
+{% endblock %}
