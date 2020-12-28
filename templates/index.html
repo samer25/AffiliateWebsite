@@ -1,0 +1,127 @@
+{% extends 'common/site.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+{% endblock %}
+{% block title %}{% endblock %}
+{% block site_content %}
+
+    <div class="content">
+        <div class="box-one">
+            <h1>Let's Talk About Tech</h1>
+            <br>
+            <p>Our goal is to show you awesome content about tech and products review </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a class="button" href="{% url 'blog' %}">Blog</a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="box-two">
+            <h1>Let's Check Some Reviews of Tech Products</h1>
+            <br>
+            <p>Our goal is to show you awesome content about tech and products review </p>
+            <br>
+            <br>
+            <a href="{% url 'products' %}" class="button">Products</a>
+        </div>
+        <br>
+        <div class="box-three">
+            <h1>Latest Posts</h1>
+            <br>
+            <div class="container">
+
+                {% for post in blogs %}
+                    <div class="wrapper">
+
+                        <div class="card radius shadowDepth1">
+                            <div class="card__image border-tlr-radius">
+                                <img src="{{ post.post_image.url }}" alt="image" class="border-tlr-radius">
+                            </div>
+
+                            <div class="card__content card__padding">
+                                <div class="card__share">
+                                    <div class="card__social">
+                                        <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
+                                        <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
+                                        <a class="share-icon googleplus" href="#"><span
+                                                class="fa fa-google-plus"></span></a>
+                                    </div>
+
+                                    <a id="share" class="share-toggle share-icon" href="#"></a>
+                                </div>
+
+                                <div class="card__meta" style="margin-top: 15px;">
+                                    <a style="font-size: 30px;"
+                                       href="{% url 'blog details' post.pk %}">{{ post.title }}</a>
+                                    <br>
+                                    <br>
+                                </div>
+
+                                <article class="card__article">
+                                    <h2 style="font-size: 25px;"><a
+                                            href="{% url 'blog details' post.pk %}">{{ post.description }}</a></h2>
+                                    <br>
+                                    <p class="content-post">{{ post.content|safe|truncatewords:10 }}</p>
+                                </article>
+                            </div>
+
+                            <div class="card__action">
+
+                                <div class="card__author">
+                                    {#                            <img src="http://lorempixel.com/40/40/sports/" alt="user">#}
+                                    <div class="card__author-content">
+                                        By: <a href="#">{{ post.created_by }}</a>
+                                        <br>
+
+                                        Resource: <a href="#">{{ post.created_by }}</a>
+                                        <br>
+                                        <time>{{ post.date }}</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="box-three">
+            <h1>Latest Added Products</h1>
+            <br>
+            <div class="container">
+                {% for item in product %}
+                    <div class="product-card">
+                        <div class="product-tumb">
+                            <img src="{{ item.image_product.url }}" alt="">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">{{ item.category }}</span>
+                            <h4><a href="">{{ item.brand_product }}</a></h4>
+                            <p>{{ item.description_product|safe|truncatewords:10 }}</p>
+                            <div class="product-bottom-details">
+                                <a class="button" href="{{ item.link_product_amazon }}">Buy At Amazon</a>
+                                <a class="button" href="{% url 'product details' item.id %}">Details</a>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+
+
+
+{% endblock %}
+{% block script %} {% endblock %}

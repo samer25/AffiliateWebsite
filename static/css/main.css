@@ -1,0 +1,53 @@
+html {
+    scroll-behavior: smooth;
+
+}
+
+body {
+    background-color: #393939;
+
+
+}
+
+.content {
+    margin-top: 20vh;
+}
+
+
+.content h1, p {
+    color: white;
+
+}
+
+.content h1 {
+    font-size: 80px;
+    text-align: center;
+
+}
+
+.box-one, .box-two, .box-three {
+    text-align-last: center;
+    display: grid;
+
+}
+
+.box-two, .box-three {
+    margin-top: 30%;
+
+}
+
+.button {
+    padding: 15px;
+    text-align: center;
+    width: 100px;
+    margin: 24px auto;
+    font-size: 25px;
+    background-color: #ec7f37;
+    border-radius: 50px;
+    color: white;
+}
+
+
+.about {
+    padding-bottom: 50vh;
+}

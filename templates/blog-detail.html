@@ -1,0 +1,57 @@
+{% extends 'common/site.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog-detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+
+{% endblock %}
+{% block title %} Blog Detail {% endblock %}
+{% block site_content %}
+    <div class="content blog-con">
+        <h1>Blog Detail</h1>
+
+        <div id="container-blog">
+            <div style="overflow: auto;" class="blog-details">
+                <h1>{{ blogs.title }}</h1>
+                <br>
+                <h2>{{ blogs.description }}</h2>
+                <br>
+                <pre class="information">" {{ blogs.content }}. "</pre>
+            </div>
+
+            <div class="blog-image">
+                <img src="{{ blogs.post_image.url }}"
+                     alt="{{ blogs.title }}">
+            </div>
+            <br>
+            <br>
+            <div class="card__author-content">
+                <b>Date posted:</b> <a>{{ blogs.date }}</a>
+                <hr>
+                <br>
+                <b>By:</b> <a href="#">{{ blogs.created_by }}</a>
+                <hr>
+                <br>
+                <b>Resource</b>: <a href="#">{{ blogs.resources }}</a>
+            </div>
+
+        </div>
+        <div class="rel-products">
+            <h1>Related products</h1>
+            {% for item in blog_product %}
+                <div class="product-card">
+                    <div class="product-tumb">
+                        <img src="{{ item.image_blog_product.url }}" alt="">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-catagory">{{ item.category }}</span>
+                        <h4><a href="">{{ item.brand_blog_product }}</a></h4>
+                        <div class="product-bottom-details">
+                            <a class="button" href="{{ item.link_product_amazon }}">Buy At Amazon</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

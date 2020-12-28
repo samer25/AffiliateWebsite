@@ -1,0 +1,28 @@
+{% extends 'common/site.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+{% endblock %}
+{% block title %} Products {% endblock %}
+{% block site_content %}
+    <div class="content products-con">
+        <h1>Products</h1>
+        {% for item in product %}
+            <div class="product-card">
+                <div class="product-tumb">
+                    <img src="{{ item.image_product.url }}" alt="">
+                </div>
+                <div class="product-details">
+                    <span class="product-catagory">{{ item.category }}</span>
+                    <h4><a href="">{{ item.brand_product }}</a></h4>
+                    <p>{{ item.description_product|safe|truncatewords:10 }}</p>
+                    <div class="product-bottom-details">
+                        <a class="button" href="{{ item.link_product_amazon }}">Buy At Amazon</a>
+                        <a class="button" href="{% url 'product details' item.id %}">Details</a>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

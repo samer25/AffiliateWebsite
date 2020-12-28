@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block style %} {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/clear.css' %}">
+    <link rel="shortcut icon" type="image/jpg" href="{% static '' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav-bar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+{% include 'common/nav-bar.html' %}
+{% block site_content %} {% endblock %}
+
+
+{% block script %} {% endblock %}
+{% include 'common/footer.html' %}
+
+<script type="application/javascript" rel="script" src="{% static 'js/main.js' %}"></script>
+<script type="application/javascript" rel="script" src="{% static 'js/nav-bar.js' %}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+</html>

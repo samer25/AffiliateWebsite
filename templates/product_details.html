@@ -1,0 +1,39 @@
+{% extends 'common/site.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product_details.css' %}">
+{% endblock %}
+{% block title %} Products {% endblock %}
+{% block site_content %}
+    <div class="content products-con">
+        <h1>Product Detail</h1>
+
+        <div id="container">
+            <div class="product-details">
+                <h1>{{ product.brand_product }}</h1>
+                <br>
+                <h2>About the item:</h2>
+                <br>
+                <pre class="information">" {{ product.about_product }}. "</pre>
+                <div class="control">
+                    <a class="button">Buy at amazon</a>
+                </div>
+            </div>
+            <div class="product-image">
+                <img src="{{ product.image_product.url }}"
+                     alt="{{ product.brand_product }}">
+                <div class="info">
+                    <h2>The Description</h2>
+                    <ul>
+                        <li><strong>Brand: </strong>{{ product.brand_product }}</li>
+                        <li><strong>Model: </strong>{{ product.model_name }}</li>
+                        <li><strong>Category: </strong>{{ product.category }}</li>
+                        <li>
+                            <pre class="more-detail">{{ product.more_details }}</pre>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

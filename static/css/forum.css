@@ -1,0 +1,130 @@
+.custom_table {
+    width: 100%;
+    padding: 0;
+    max-width: 900px;
+    margin: 50px auto;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-collapse: collapse;
+}
+
+.custom_table thead {
+    background: #333;
+    color: #fff;
+}
+
+.custom_table thead th {
+    padding: 15px 20px;
+}
+
+.custom_table tbody tr {
+    transition: all .5s;
+}
+
+.custom_table tbody tr:nth-child(odd) {
+    background: rgba(0, 0, 0, .05)
+}
+
+.custom_table tbody tr:nth-child(even) {
+    background: #fff
+}
+
+.custom_table tbody tr:hover {
+    background: rgba(0, 0, 0, .08)
+}
+
+.custom_table tbody td {
+    padding: 8px 20px;
+    text-align: left;
+}
+
+.custom_table tbody td:first-child {
+    width: 60%
+}
+
+.custom_table tbody td:nth-child(2) {
+    width: 25%
+}
+
+.custom_table tbody td:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+
+.custom_table tbody td a {
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: block;
+    text-decoration: none;
+}
+
+.custom_table tbody td small, .last_activity {
+    color: rgba(0, 0, 0, .7);
+    font-size: 13px;
+    display: block;
+}
+
+.custom_table tbody td small a, .user_name {
+    color: #ff3300;
+    font-size: 13px;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 0
+}
+
+.custom_table ul.question_tags {
+    margin: 6px 0 0;
+    padding: 0
+}
+
+.custom_table ul.question_tags li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+    font-size: 11px;
+    padding: 3px 7px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, .1)
+}
+
+.custom_table ul.question_tags li:after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -20px;
+    content: " > ";
+}
+
+.custom_table ul.question_tags li:last-child:after {
+    display: none;
+}
+
+.activity_outer {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.activity_outer li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    margin: 5px;
+    width: 50%;
+    color: rgba(0, 0, 0, .5);
+    min-width: 80px;
+    -webkit-box-shadow: 0px 10px 32px 0px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0px 10px 32px 0px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 10px 32px 0px rgba(0, 0, 0, 0.07);
+}
+
+.activity_outer li strong {
+    margin-bottom: 4px;
+    color: #ff3300
+}
