@@ -18,6 +18,20 @@
 </head>
 <body>
 {% include 'common/nav-bar.html' %}
+<div class="alert" role="alert">
+
+    {% if messages %}
+        <div class="massage-alert">
+            {% for message in messages %}
+                {% if message.tags %}
+                    {{ message }}"
+                {% endif %}
+
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>
 {% block site_content %} {% endblock %}
 
 

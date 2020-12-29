@@ -3,7 +3,7 @@
     width: 100%;
 }
 
-nav {
+.nav-nav-bar {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -23,8 +23,7 @@ nav {
 .nav-links {
     display: flex;
     justify-content: space-around;
-
-    width: 30%;
+    width: 50%;
 }
 
 .nav-links li {
@@ -57,6 +56,12 @@ nav {
 
 }
 
+.nav-links a:hover {
+    opacity: 0.5;
+
+
+}
+
 
 .burger div {
     width: 25px;
@@ -72,8 +77,6 @@ nav {
 }
 
 
-
-
 @media screen and (max-width: 1024px) {
     .nav-links {
         width: 45%;
@@ -84,7 +87,6 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-
 
 
     .nav-links {

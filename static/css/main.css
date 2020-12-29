@@ -39,9 +39,10 @@ body {
 .button {
     padding: 15px;
     text-align: center;
-    width: 100px;
+    width: fit-content;
+    width: -moz-fit-content;
     margin: 24px auto;
-    font-size: 25px;
+    font-size: 15px;
     background-color: #ec7f37;
     border-radius: 50px;
     color: white;
@@ -51,4 +52,27 @@ body {
 
 .about {
     padding-bottom: 50vh;
+}
+
+.box-btn {
+    display: flex;
+    width: 175px;
+    margin: auto;
+}
+
+.alert {
+    position: absolute;
+    width: 100%;
+    margin-top: 65px;
+    text-align: center;
+}
+
+.massage-alert {
+    width: 25%;
+    padding: 5px;
+    margin: auto;
+    border-radius: 4px;
+    color: white !important;
+    box-shadow: 0 0 10px 6px #ec7f37;
+
 }

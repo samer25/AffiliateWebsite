@@ -1,0 +1,23 @@
+{% extends 'common/site.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">{% endblock %}
+{% block title %}{% endblock %}
+
+{% block site_content %}
+    <div class="content">
+        <div class="forms">
+            <h2>Edit Comment</h2>
+            <form method="post">
+                {% csrf_token %}
+                <br>
+                {{ error }}
+                {{ form.errors }}
+                {{ form }}
+
+                <button class="button-success button">Update</button>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

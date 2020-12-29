@@ -1,8 +1,8 @@
 .custom_table {
     width: 100%;
     padding: 0;
-    max-width: 900px;
-    margin: 170px auto;
+    max-width: 140vh;
+    margin: 10px auto;
     border: 1px solid rgba(0, 0, 0, .2);
     border-collapse: collapse;
     background-color: white;
@@ -36,6 +36,8 @@
 .custom_table tbody td {
     padding: 8px 20px;
     text-align: left;
+    vertical-align: middle;
+
 }
 
 .custom_table tbody td:first-child {
@@ -58,12 +60,17 @@
     margin-bottom: 6px;
     display: block;
     text-decoration: none;
+    text-align: -webkit-center;
+
+
 }
 
 .custom_table tbody td small, .last_activity {
     color: rgba(0, 0, 0, .7);
     font-size: 13px;
     display: block;
+    text-align: center;
+
 }
 
 .custom_table tbody td small a, .user_name {
@@ -169,12 +176,12 @@ h1 {
     text-align: -webkit-center;
     border: 1px black solid;
     width: 35vh;
-    color: white!important;
+    color: white !important;
 
 }
 
 .forms h2, h3 {
-    color: white!important;
+    color: white !important;
 }
 
 h2 {
@@ -229,6 +236,8 @@ form a {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: -webkit-center;
+    border: 1px black solid;
+
 
 }
 
@@ -294,8 +303,48 @@ form a {
 .bio {
     padding: 20px;
     color: white;
+    letter-spacing: 1px;
 }
 
 .middle {
     padding: 20px;
+}
+
+.profile-min-pic {
+    border-radius: 50%;
+    width: 37px;
+}
+
+.desc {
+    color: #000300;
+    word-break: break-word !important;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.paginate-nav {
+    margin: auto;
+    width: fit-content;
+
+}
+
+.paginate-nav a, .paginate-nav span {
+    color: white !important;
+    padding: 20px;
+
+}
+
+.crud-btn {
+    width: 70px;
+    padding: 10px;
+    background-color: #ec7f37;
+    color: white !important;
+    border-radius: 20%;
+    margin: auto;
+    border: none;
+    font-size: 15px !important;
+}
+
+textarea {
+    padding: 5px;
 }

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'blog_app',
     'forum_app',
     'landing_app',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,4 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
+
