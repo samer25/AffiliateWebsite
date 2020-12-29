@@ -1,26 +1,33 @@
 html {
     scroll-behavior: smooth;
 
+
 }
 
 body {
     background-color: #393939;
+    /*width: fit-content;*/
+    /*width: -moz-fit-content;*/
+    /*margin: auto;*/
 
 
 }
 
 .content {
-    margin-top: 20vh;
+    width: fit-content;
+    margin: 20vh auto;
 }
 
 
 .content h1, p {
     color: white;
+    text-align: center;
+
 
 }
 
 .content h1 {
-    font-size: 80px;
+    font-size: 8vh;
     text-align: center;
 
 }
@@ -56,8 +63,9 @@ body {
 
 .box-btn {
     display: flex;
-    width: 175px;
     margin: auto;
+    width: fit-content;
+
 }
 
 .alert {
@@ -75,4 +83,12 @@ body {
     color: white !important;
     box-shadow: 0 0 10px 6px #ec7f37;
 
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        width: fit-content;
+        width: -moz-fit-content;
+
+    }
 }

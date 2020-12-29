@@ -36,7 +36,7 @@
             <br>
             <div class="container">
 
-                {% for post in blogs %}
+                {% for post in blogs|dictsortreversed:'date'|slice:3 %}
                     <div class="wrapper">
 
                         <div class="card radius shadowDepth1">
@@ -95,7 +95,7 @@
             <h1>Latest Added Products</h1>
             <br>
             <div class="container">
-                {% for item in product %}
+                {% for item in product|dictsortreversed:'date'|slice:3 %}
                     <div class="product-card">
                         <div class="product-tumb">
                             <img src="{{ item.image_product.url }}" alt="">

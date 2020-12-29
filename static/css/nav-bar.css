@@ -1,6 +1,7 @@
 .fixed-navbar {
     position: fixed;
     width: 100%;
+    left: 0%;
 }
 
 .nav-nav-bar {

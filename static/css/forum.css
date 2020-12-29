@@ -1,5 +1,5 @@
 .custom_table {
-    width: 100%;
+    /*width: 100%;*/
     padding: 0;
     max-width: 140vh;
     margin: 10px auto;
@@ -230,13 +230,13 @@ form a {
 }
 
 .profile {
-    width: 65%;
     margin: auto auto 20px auto;
     border-radius: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: -webkit-center;
     border: 1px black solid;
+    width: 60em;
 
 
 }

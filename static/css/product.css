@@ -7,14 +7,14 @@
 
 .products-con {
     text-align: center;
-    margin-top: 10vh!important;
+    margin-top: 10vh !important;
 }
 
 .product-card {
     box-shadow: 0 2px 7px #dfdfdf;
-    margin: 100px auto;
+    margin: 100px 1em auto 1em;
     background: #fafafa;
-    display: inline-table;
+    display: inline-grid;
     width: 400px;
 
 }
@@ -111,4 +111,10 @@
 
 .product-links a:hover {
     color: #fbb72c;
+}
+
+@media screen and (max-width: 768px) {
+    .product-card {
+        width: 340px;
+    }
 }

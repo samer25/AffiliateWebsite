@@ -66,14 +66,18 @@
 .information {
     white-space: pre-line;
     font-size: 20px;
+    height: 65vh;
+    overflow: auto;
+    word-break: break-word;
 
 
 }
 
 
-.more-detail{
+.more-detail {
     color: white;
 }
+
 /* control */
 
 .control {
@@ -153,4 +157,10 @@
 
 .product-image:hover img {
     transform: scale(1.2, 1.2);
+}
+
+@media screen and (max-width: 768px) {
+    .product-details {
+        height: 100vh;
+    }
 }

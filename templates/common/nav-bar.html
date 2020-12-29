@@ -13,15 +13,15 @@
             <li>
                 <a title="News Tech" href="{% url 'blog' %}">Tech Blog</a>
             </li>
-            {% if user.is_authenticated %}
+{#            {% if user.is_authenticated %}#}
                 <li>
                     <a title="Forum" href="{% url 'forum' %}">Forum</a>
                 </li>
-            {% else %}
-                <li>
-                    <a title="Forum" href="{% url 'login user' %}">Forum</a>
-                </li>
-            {% endif %}
+{#            {% else %}#}
+{#                <li>#}
+{#                    <a title="Forum" href="{% url 'login user' %}">Forum</a>#}
+{#                </li>#}
+{#            {% endif %}#}
             {% if user.is_authenticated %}
                 <li>
                     <a title="Profile" href="{% url 'profile' user.id %}">Profile</a>

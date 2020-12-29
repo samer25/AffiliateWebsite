@@ -11,3 +11,4 @@ class Products(models.Model):
     more_details = models.TextField()
     category = models.CharField(max_length=50)
     link_product_amazon = models.URLField()
+    date = models.DateTimeField(auto_now_add=True)

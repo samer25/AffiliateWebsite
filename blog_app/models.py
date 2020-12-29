@@ -9,7 +9,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     content = models.TextField()
-    date = datetime.now()
+    date = models.DateTimeField(auto_now_add=True)
     created_by = models.CharField(max_length=50)
     resources = models.CharField(max_length=100)
 

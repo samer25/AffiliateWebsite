@@ -14,7 +14,6 @@ def forum(request):
     return render(request, 'forums/forum.html')
 
 
-@method_decorator(login_required, name='dispatch')
 class ForumListView(ListView):
     model = Forum
     queryset = Forum.objects.order_by('-created_at')
@@ -28,6 +27,7 @@ class ForumListView(ListView):
     #     return context
 
 
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 class ForumDetailView(DetailView):
     model = Forum
     template_name = 'forums/forum_detail.html'
@@ -46,6 +46,7 @@ class ForumDetailView(DetailView):
         return obj
 
 
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 class CommentCreateView(CreateView):
     model = Comment
     fields = ['desc']
@@ -58,7 +59,7 @@ class CommentCreateView(CreateView):
         return super().form_valid(form)
 
 
-@method_decorator(login_required, name='dispatch')
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 class CommentDeleteView(DeleteView):
     """Post Delete"""
     """Deleting the post with all connected models : comments model """
@@ -71,7 +72,7 @@ class CommentDeleteView(DeleteView):
         return redirect('forum-detail', comm.forum.slug)
 
 
-@method_decorator(login_required, name='dispatch')
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 class CommentUpdateView(UpdateView):
     model = Comment
     fields = ['desc']
@@ -79,7 +80,7 @@ class CommentUpdateView(UpdateView):
     context_object_name = 'form'
 
 
-@method_decorator(login_required, name='dispatch')
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 class ForumDeleteView(DeleteView):
     """Post Delete"""
     """Deleting the post with all connected models : comments model """
@@ -92,7 +93,7 @@ class ForumDeleteView(DeleteView):
         return redirect('forum')
 
 
-@method_decorator(login_required, name='dispatch')
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 class ForumUpdateView(UpdateView):
     model = Forum
     fields = ['title', 'desc']
@@ -102,6 +103,7 @@ class ForumUpdateView(UpdateView):
         return reverse_lazy('forum-detail', kwargs={'slug': self.object.slug})
 
 
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 class ForumCreate(CreateView):
     model = Forum
     fields = ['title', 'desc']
@@ -113,7 +115,7 @@ class ForumCreate(CreateView):
         return super().form_valid(forms)
 
 
-@login_required(login_url='login user')
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 def like_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     user = User.objects.get(pk=request.user.id)
@@ -123,7 +125,7 @@ def like_comment(request, pk):
     return redirect('forum')
 
 
-@login_required(login_url='login user')
+@method_decorator(login_required(login_url='login user'), name='dispatch')
 def dislike_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     user = User.objects.get(pk=request.user.id)

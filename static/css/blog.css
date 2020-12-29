@@ -89,12 +89,18 @@ h2 {
 
 .card__image img {
     width: 100%;
-    max-width: 100%;
+    max-width: 400px;
     display: block;
+    min-width: 400px;
+    max-height: 237px;
+
+
 }
 
 .card__content {
     position: relative;
+    text-align: center;
+
 }
 
 .content-post {
