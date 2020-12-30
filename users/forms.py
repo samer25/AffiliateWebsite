@@ -12,13 +12,13 @@ class RegisterUserForm(UserCreationForm):
         super(RegisterUserForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
-        for field_name in ['username', 'password1', 'password2', 'email']:
+        for field_name in ['username', 'password1', 'password2']:
             self.fields[field_name].help_text = None
 
     class Meta:
         """Using Model User from django auth and specify the fields that we needs """
         model = User
-        fields = ('username', 'password1', 'password2', 'email')
+        fields = ('username', 'password1', 'password2')
 
 
 class ProfileUserForm(forms.ModelForm):

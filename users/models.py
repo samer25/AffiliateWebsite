@@ -8,6 +8,7 @@ from django.db import models
 # Create your models here.
 class ProfileUser(models.Model):
     """Profile Model with one to one field to know how  profile is """
+    email = models.EmailField(blank=False)
     name = models.CharField(max_length=10, blank=True)
     profile_pic = models.ImageField(upload_to='profile_img', default='default.png', blank=True)
     bio = models.TextField(blank=True, )

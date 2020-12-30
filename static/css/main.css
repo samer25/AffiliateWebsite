@@ -9,6 +9,7 @@ body {
     /*width: fit-content;*/
     /*width: -moz-fit-content;*/
     /*margin: auto;*/
+    letter-spacing: 1px !important;
 
 
 }
@@ -85,6 +86,10 @@ body {
     color: white !important;
     box-shadow: 0 0 10px 6px #ec7f37;
 
+}
+
+form ul li {
+    color: white;
 }
 
 @media screen and (max-width: 768px) {

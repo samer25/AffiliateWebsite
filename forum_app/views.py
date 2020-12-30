@@ -17,7 +17,7 @@ def forum(request):
 class ForumListView(ListView):
     model = Forum
     queryset = Forum.objects.order_by('-created_at')
-    paginate_by = 2
+    paginate_by = 4
     template_name = 'forums/forum.html'
     context_object_name = 'forum'
 
@@ -115,45 +115,21 @@ class ForumCreate(CreateView):
         return super().form_valid(forms)
 
 
-@method_decorator(login_required(login_url='login user'), name='dispatch')
+# @method_decorator(login_required(login_url='login user'), name='dispatch')
 def like_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     user = User.objects.get(pk=request.user.id)
     comment.likes.add(user)
     comment.save()
 
-    return redirect('forum')
+    return redirect('forum-detail', comment.forum.slug)
 
 
-@method_decorator(login_required(login_url='login user'), name='dispatch')
+# @method_decorator(login_required(login_url='login user'), name='dispatch')
 def dislike_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     user = User.objects.get(pk=request.user.id)
     comment.dislikes.add(user)
     comment.save()
 
-    return redirect('forum')
-
-# @method_decorator(login_required, name='dispatch')
-# class ForumCreate(CreateView):
-#     """User Creating posts view that required to be login using method_decorator"""
-#
-#     # get method viewing forms for creating posts
-#     @method_decorator(login_required(login_url='login user'))
-#     def get(self, request, *args, **kwargs):
-#         form = ForumForm()
-#         return render(request, 'forums/forum_create.html', {'form': form})
-#
-#     # post method verified forms fields if they valid if they are save it
-#     @method_decorator(login_required(login_url='login user'))
-#     def post(self, request, *args, **kwargs):
-#         user = User.objects.get(pk=request.user.pk)
-#         form = ForumForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             forms = form.save(commit=False)
-#             forms.created_by = user
-#             forms.save()
-#             messages.success(request, 'Successfully Created Post')
-#
-#             return redirect('forum')
-#         return render(request, 'forums/forum_create.html', {'form': form})
+    return redirect('forum-detail', comment.forum.slug)

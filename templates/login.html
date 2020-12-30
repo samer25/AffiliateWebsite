@@ -5,23 +5,27 @@
 {% block title %}{% endblock %}
 
 {% block site_content %}
-    <div class="root">
-        <div class="content"><h1></h1></div>
-        <div class="forms">
-            <h2>Log in:</h2>
-            <form method="post">
-                {% csrf_token %}
-                <br>
-                {{ error }}
-                {{ form.errors }}
-                {{ form }}
+    <br>
+    <br>
+    <br>
+    <div class="content"><h1></h1></div>
+    <div class="forms">
+        <h2>Log in:</h2>
+        <form method="post">
+            {% csrf_token %}
+            <br>
+            {{ error }}
+            {{ form.errors }}
+            {{ form }}
 
-                <button class="button-success button">Login</button>
-            </form>
-            <span style="color: white">or</span>
-            <br>
-            <br>
-            <a href="{% url 'user register' %}" style="color: white; font-size: 20px">Join Us</a>
-        </div>
+            <button class="button-success button">Login</button>
+        </form>
+        <span style="color: white">or</span>
+        <br>
+        <br>
+        <a href="{% url 'user register' %}" style="color: white; font-size: 20px">Join Us</a>
+        <br>
+        <br>
+        <a href="{% url 'password_reset' %}" style="color: white; font-size: 20px">Forgot password?</a>
     </div>
 {% endblock %}

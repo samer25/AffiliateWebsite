@@ -18,7 +18,7 @@
                     <p>{{ item.description_product|safe|truncatewords:10 }}</p>
                     <div class="product-bottom-details">
                         <a class="button" href="{{ item.link_product_amazon }}">Amazon</a>
-                        <a class="button" href="{% url 'product details' item.id %}">Details</a>
+                        <a class="button" href="{% url 'product details' item.slug %}">Details</a>
 
                     </div>
                 </div>

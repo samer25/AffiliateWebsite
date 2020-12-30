@@ -70,14 +70,14 @@
 
                                 <div class="card__meta" style="margin-top: 15px;">
                                     <a style="font-size: 30px;"
-                                       href="{% url 'blog details' post.pk %}">{{ post.title }}</a>
+                                       href="{% url 'blog details' post.slug %}">{{ post.title }}</a>
                                     <br>
                                     <br>
                                 </div>
 
                                 <article class="card__article">
-                                    <h2 style="font-size: 25px;"><a
-                                            href="{% url 'blog details' post.pk %}">{{ post.description }}</a></h2>
+{#                                    <h2 style="font-size: 25px;"><a#}
+{#                                            href="{% url 'blog details' post.slug %}">{{ post.description }}</a></h2>#}
                                     <br>
                                     <p class="content-post">{{ post.content|safe|truncatewords:10 }}</p>
                                 </article>
@@ -118,7 +118,7 @@
                             <p>{{ item.description_product|safe|truncatewords:10 }}</p>
                             <div class="product-bottom-details">
                                 <a class="button" href="{{ item.link_product_amazon }}">Amazon</a>
-                                <a class="button" href="{% url 'product details' item.id %}">Details</a>
+                                <a class="button" href="{% url 'product details' item.slug %}">Details</a>
 
                             </div>
                         </div>
