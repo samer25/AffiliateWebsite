@@ -38,7 +38,7 @@
                     <div class="last_activity">By <a href="{% url 'profile' forum.user.profile.id %}"><span
                             class="user_name">{{ forum.user }}</span> </a>
                         <br>
-                        <span class="time_ago">{{ forum.created_at }}</span>
+                        <span class="time_ago">{{ forum.created_at|timesince }}</span>
                     </div>
                 </td>
             </tr>
@@ -117,7 +117,7 @@
                                 class="profile-min-pic" src="{{ forum.user.profile.profile_pic.url }}" alt=""> </span>
                             <br>
                             <br>
-                            <span class="time_ago">{{ comm.created_at }}</span>
+                            <span class="time_ago">{{ comm.created_at|timesince }}</span>
                         </div>
                     </td>
                 </tr>

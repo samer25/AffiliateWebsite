@@ -7,6 +7,9 @@
 
 {% block site_content %}
     <div class="content">
+        <h1 style="font-size: 5vh">Share And Help another In Our Forum</h1>
+        <br>
+        <br>
         <br>
         <div style="text-align-last: center;">
             <a class="button" href="{% url 'forum-add' %}">Create Question</a>
@@ -42,7 +45,7 @@
                             </a>
                             <br>
                             <a href="{% url 'profile' forums.user.profile.id %}">{{ forums.user }}</a>
-                            <span class="time_ago">{{ forums.created_at }}</span></small>
+                            <span class="time_ago">{{ forums.created_at|timesince }}</span></small>
                         {#                <ul class="question_tags">#}
                         {#                    <li>Mercedes-Benz</li>#}
                         {#                    <li>GLK-Class</li>#}
@@ -63,7 +66,7 @@
                                 <img class="profile-min-pic" src="{{ forums.user.profile.profile_pic.url }}"
                                      alt=""></span>
                                 <br>
-                                <span class="time_ago">{{ forums.comment_set.last.created_at }}</span>
+                                <span class="time_ago">{{ forums.comment_set.last.created_at|timesince }}</span>
                             </div>
                         {% endif %}
                     </td>

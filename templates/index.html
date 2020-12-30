@@ -9,9 +9,9 @@
 
     <div class="content">
         <div class="box-one">
-            <h1>Let's Talk About Tech</h1>
+            <h1>Check Our Tech Blog</h1>
             <br>
-            <p>Our goal is to show you awesome content about tech and products review </p>
+            <p>Our goal is to show you awesome content about tech and some products that we think are cool</p>
             <br>
             <br>
             <br>
@@ -23,12 +23,24 @@
         <br>
         <br>
         <div class="box-two">
-            <h1>Let's Check Some Reviews of Tech Products</h1>
+            <h1>Check Some Cool Tech</h1>
             <br>
-            <p>Our goal is to show you awesome content about tech and products review </p>
+            <p>We like to show you awesome tech that we think are cool</p>
             <br>
             <br>
-            <a style="width: 100px;" href="{% url 'products' %}" class="button">Products</a>
+            <a style="width: 100px;" href="{% url 'products' %}" class="button">Details Tech</a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="box-two">
+            <h1>Share And Help another In Our Forum</h1>
+            <br>
+            <p>If you have a question post it or you can help other users by answer there questions</p>
+            <br>
+            <br>
+            <a style="width: 100px;" href="{% url 'forum' %}" class="button">Forum</a>
         </div>
         <br>
         <div class="box-three">
@@ -92,7 +104,7 @@
             </div>
         </div>
         <div class="box-three">
-            <h1>Latest Added Products</h1>
+            <h1>Latest Added Tech Details</h1>
             <br>
             <div class="container">
                 {% for item in product|dictsortreversed:'date'|slice:3 %}
@@ -105,7 +117,7 @@
                             <h4><a href="">{{ item.brand_product }}</a></h4>
                             <p>{{ item.description_product|safe|truncatewords:10 }}</p>
                             <div class="product-bottom-details">
-                                <a class="button" href="{{ item.link_product_amazon }}">Buy At Amazon</a>
+                                <a class="button" href="{{ item.link_product_amazon }}">Amazon</a>
                                 <a class="button" href="{% url 'product details' item.id %}">Details</a>
 
                             </div>

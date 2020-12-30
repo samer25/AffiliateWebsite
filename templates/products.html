@@ -6,7 +6,7 @@
 {% block title %} Products {% endblock %}
 {% block site_content %}
     <div class="content products-con">
-        <h1>Products</h1>
+        <h1 style="font-size: 5vh">Awesome Tech</h1>
         {% for item in product %}
             <div class="product-card">
                 <div class="product-tumb">
@@ -17,7 +17,7 @@
                     <h4><a href="">{{ item.brand_product }}</a></h4>
                     <p>{{ item.description_product|safe|truncatewords:10 }}</p>
                     <div class="product-bottom-details">
-                        <a class="button" href="{{ item.link_product_amazon }}">Buy At Amazon</a>
+                        <a class="button" href="{{ item.link_product_amazon }}">Amazon</a>
                         <a class="button" href="{% url 'product details' item.id %}">Details</a>
 
                     </div>

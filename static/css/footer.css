@@ -25,6 +25,8 @@ footer {
 
 .footer-distributed .footer-left {
     width: 40%;
+    text-align: center;
+
 }
 
 .footer-distributed h3 {
@@ -129,7 +131,7 @@ footer {
     width: 35px;
     height: 35px;
     cursor: pointer;
-    background-color: #33383b;
+    background-color: white;
     border-radius: 2px;
 
     font-size: 20px;

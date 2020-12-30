@@ -35,6 +35,8 @@ body {
 .box-one, .box-two, .box-three {
     text-align-last: center;
     display: grid;
+    margin-top: 35vh;
+
 
 }
 

@@ -1,12 +1,13 @@
 {% extends 'common/site.html' %}
 {% load static %}
+
 {% block style %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
 {% endblock %}
 {% block title %} Products {% endblock %}
 {% block site_content %}
     <div class="content blog-list">
-        <h1>Blog Tech</h1>
+        <h1 style="font-size: 5vh">Blog Tech</h1>
         {% for post in blogs %}
             <div class="wrapper">
 
@@ -18,9 +19,11 @@
                     <div class="card__content card__padding">
                         <div class="card__share">
                             <div class="card__social">
-                                <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
+                                <a class="share-icon facebook"
+                                   href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1/{% url 'blog details' post.id %}"><span
+                                        class="fa fa-facebook"></span></a>
                                 <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
-                                <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>
+{#                                <a class="share-icon " href="#"><span class="fa fa-google-plus"></span></a>#}
                             </div>
 
                             <a id="share" class="share-toggle share-icon" href="#"></a>
