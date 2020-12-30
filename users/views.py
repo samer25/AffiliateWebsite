@@ -82,7 +82,7 @@ def activate(request, uidb64, token):
         # user.profile.email = True
         user.save()
         messages.success(request, 'Thank you for your email confirmation. Now you can login your account.')
-        return redirect('forum')
+        return redirect('login user')
 
 
 class LoginUser(FormView):

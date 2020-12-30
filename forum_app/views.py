@@ -115,7 +115,7 @@ class ForumCreate(CreateView):
         return super().form_valid(forms)
 
 
-# @method_decorator(login_required(login_url='login user'), name='dispatch')
+@login_required(login_url='login user')
 def like_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     user = User.objects.get(pk=request.user.id)
@@ -125,7 +125,7 @@ def like_comment(request, pk):
     return redirect('forum-detail', comment.forum.slug)
 
 
-# @method_decorator(login_required(login_url='login user'), name='dispatch')
+@login_required(login_url='login user')
 def dislike_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     user = User.objects.get(pk=request.user.id)
