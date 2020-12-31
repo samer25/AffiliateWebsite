@@ -1,29 +1,22 @@
-import token
-
 import django
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.contrib.auth.models import User
-# Create your views here.
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from django.urls import reverse
 from django.utils.decorators import method_decorator
-from django.utils.encoding import force_bytes, force_text
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 from django.views.generic import CreateView, FormView, DetailView, UpdateView, DeleteView
-from django.views.generic.base import View
 from django.db.models.query_utils import Q
 from forum_app.models import Forum
 from users.forms import RegisterUserForm, ProfileUserForm, LoginUserForm
 from django.shortcuts import render, redirect
-
-# Create your views here.
 from users.models import ProfileUser
 from users.token import account_activation_token
 
@@ -180,6 +173,7 @@ def password_reset_request(request):
         if password_reset_form.is_valid():
             data = password_reset_form.cleaned_data['email']
             associated_users = User.objects.filter(Q(profile__email=data))
+            """checking if exist in data this email if is it send email"""
             if associated_users.exists():
                 for user in associated_users:
                     subject = "Password Reset Requested"
