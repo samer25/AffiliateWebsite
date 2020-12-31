@@ -30,22 +30,27 @@ from users.token import account_activation_token
 
 class RegisterUser(CreateView):
     """
-    Creating user and profile
+    Creating user and profile and sending email activation
     """
 
     # get method to view user and profile fields
     def get(self, request, *args, **kwargs):
+        """passing register form and profile form to register.html"""
         user_form = RegisterUserForm()
         profile_form = ProfileUserForm()
         return render(request, 'register.html', {'form': user_form, 'profile_form': profile_form, })
 
-    # post method to verified fields if they are correctly if it is register the user with profile
+    """post method to verified fields if they are correctly if it is register the user with profile and send
+     email for activation"""
+
     def post(self, request, *args, **kwargs):
+        """getting post request to check if is valid the data"""
         user_form = RegisterUserForm(request.POST)
         profile_form = ProfileUserForm(request.POST, request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save(commit=False)
             profile = profile_form.save(commit=False)
+            """turning is_active of to be activated when the user click to link activation"""
             user.is_active = False
             user.save()
             profile.user = user
@@ -74,12 +79,13 @@ class RegisterUser(CreateView):
 
 
 def activate(request, uidb64, token):
+    """activating the account of the user when clicked the link that is sent to him """
     uid = django.utils.http.urlsafe_base64_decode(uidb64)
     user = User.objects.get(pk=uid)
 
     if user is not None and account_activation_token.check_token(user, token):
+        """turning user is_active on """
         user.is_active = True
-        # user.profile.email = True
         user.save()
         messages.success(request, 'Thank you for your email confirmation. Now you can login your account.')
         return redirect('login user')
@@ -119,7 +125,7 @@ def logout_user(request):
 
 
 class ProfileView(DetailView):
-    """Getting selected Profile of the user and his posts"""
+    """Getting selected Profile of the user and all his Question"""
 
     @method_decorator(login_required(login_url='login user'))
     def get(self, request, *args, **kwargs):
@@ -154,6 +160,7 @@ class EditProfile(UpdateView):
 
 
 def change_password(request):
+    """crating view function for changing password of user"""
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -166,16 +173,18 @@ def change_password(request):
 
 
 def password_reset_request(request):
+    """crating password reset view function when the user forget the password by sending him email with link for
+    pass reset """
     if request.method == "POST":
         password_reset_form = PasswordResetForm(request.POST)
         if password_reset_form.is_valid():
             data = password_reset_form.cleaned_data['email']
-            associated_users = User.objects.filter(Q(email=data))
+            associated_users = User.objects.filter(Q(profile__email=data))
             if associated_users.exists():
                 for user in associated_users:
                     subject = "Password Reset Requested"
                     email_template_name = "password/password_reset_email.txt"
-                    c = {
+                    message = {
                         "email": user.email,
                         'domain': '127.0.0.1:8000',
                         'site_name': 'Website',
@@ -183,9 +192,10 @@ def password_reset_request(request):
                         'token': default_token_generator.make_token(user),
                         'protocol': 'http',
                     }
-                    email = render_to_string(email_template_name, c)
+                    email = render_to_string(email_template_name, message)
+
                     try:
-                        send_mail(subject, email, 'admin@example.com', [user.email], fail_silently=False)
+                        send_mail(subject, email, 'admin@example.com', [user.profile.email], fail_silently=False)
                     except BadHeaderError:
 
                         return HttpResponse('Invalid header found.')
@@ -198,7 +208,7 @@ def password_reset_request(request):
 
 
 class DeleteProfile(DeleteView):
-    """Deleting user and all user content"""
+    """Deleting user and all user desc_min"""
 
     # get method tho view html page delete
     @method_decorator(login_required(login_url='login user'))

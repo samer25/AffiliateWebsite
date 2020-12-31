@@ -2,7 +2,7 @@ from django.urls import path
 
 from forum_app.views import ForumListView, ForumDetailView, CommentCreateView, CommentDeleteView, ForumDeleteView, \
     CommentUpdateView, ForumUpdateView, ForumCreate, like_comment, dislike_comment
-
+"""adding url for CRUD for question and comments and like dislike function """
 urlpatterns = [
     path('add/', ForumCreate.as_view(), name='forum-add'),
     path('like/<int:pk>', like_comment, name='like comment'),

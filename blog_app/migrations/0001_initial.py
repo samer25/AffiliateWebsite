@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('post_image', models.ImageField(upload_to='post_image')),
                 ('title', models.CharField(max_length=30)),
                 ('description', models.TextField()),
-                ('content', models.TextField()),
+                ('desc_min', models.TextField()),
                 ('created_by', models.CharField(max_length=50)),
                 ('resources', models.CharField(max_length=100)),
             ],

@@ -4,8 +4,8 @@
 
 {% block title %} {{ forum.title }} {% endblock %}
 {% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/forum_detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum/forum.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum/forum_detail.css' %}">
 {% endblock %}
 {% block site_content %}
     <div class="content">
@@ -127,28 +127,5 @@
 
         </table>
     </div>
-    <script>
-{#// AJAX CALL#}
-{#$('.likin').click(function(){#}
-{#    $.ajax({#}
-{#             type: "POST",#}
-{#             url: "{% url 'like comment'  )%}",#}
-{#             data: {'content_id': $(this).attr('name'),'operation':'like_submit','csrfmiddlewaretoken': '{{ csrf_token }}'},#}
-{#             dataType: "json",#}
-{#             success: function(response) {#}
-{#              selector = document.getElementsByName(response.content_id);#}
-{#                    if(response.liked===true){#}
-{#                      $(selector).css("color","blue");#}
-{#                    }#}
-{#                    else if(response.liked===false){#}
-{#                      $(selector).css("color","black");#}
-{#                    }#}
-{##}
-{##}
-{#              }#}
-{##}
-{#        });#}
-{##}
-{#  })#}
-</script>
+
 {% endblock %}

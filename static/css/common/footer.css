@@ -5,7 +5,7 @@ footer {
 }
 
 .footer-distributed {
-    /*width: max-content;*/
+    /*width: max-desc_min;*/
     box-sizing: border-box;
     text-align: left;
     font: bold 16px sans-serif;

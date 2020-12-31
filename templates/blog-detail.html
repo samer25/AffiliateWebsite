@@ -1,8 +1,8 @@
 {% extends 'common/site.html' %}
 {% load static %}
 {% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/blog-detail.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog/blog-detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/products/product.css' %}">
 
 {% endblock %}
 {% block title %} Blog Detail {% endblock %}
@@ -16,7 +16,7 @@
                 <br>
                 <h2>{{ blogs.description }}</h2>
                 <br>
-                <pre class="information">" {{ blogs.content }}. "</pre>
+                <pre class="information">" {{ blogs.desc_min }}. "</pre>
             </div>
 
             <div class="blog-image">
@@ -38,7 +38,7 @@
         </div>
         <div class="rel-products">
             <h1>Related products</h1>
-            {% for item in blog_product %}
+            {% for item in blogs.blog_rel.all %}
                 <div class="product-card">
                     <div class="product-tumb">
                         <img src="{{ item.image_blog_product.url }}" alt="">

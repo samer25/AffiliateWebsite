@@ -7,16 +7,14 @@ from product_app.models import Products
 
 
 def products(request):
+    """crating function view to pass product data  to product.html"""
     product = Products.objects.all()
     return render(request, 'products.html', {'product': product})
 
 
-# def product_details(request, pk):
-#     product = Products.objects.get(pk=pk)
-#     return render(request, 'product_details.html', {'product': product})
-
 
 class ProductDetailView(DetailView):
+    """crating class base view to assess to Product details"""
     model = Products
     template_name = 'product_details.html'
     context_object_name = 'product'

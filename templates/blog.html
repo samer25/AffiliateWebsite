@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog/blog.css' %}">
 {% endblock %}
 {% block title %} Products {% endblock %}
 {% block site_content %}
@@ -37,7 +37,7 @@
                         <article class="card__article">
 {#                            <h2 style="font-size: 25px;"><a#}
 {#                                    href="{% url 'blog details' post.slug %}">{{ post.description }}</a></h2>#}
-                            <p class="content-post">{{ post.content|safe|truncatewords:10 }}</p>
+                            <p class="content-post">{{ post.desc_min|safe|truncatewords:10 }}</p>
                         </article>
                     </div>
 

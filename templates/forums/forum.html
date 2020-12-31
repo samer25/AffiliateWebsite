@@ -1,7 +1,7 @@
 {% extends 'common/site.html' %}
 {% load static %}
 {% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum/forum.css' %}">
 {% endblock %}
 {% block title %}Forum{% endblock %}
 
@@ -35,7 +35,7 @@
                         {#                            <a href="{% url 'forum-edit' forums.id %}">Edit</a>#}
                         {#                            <form method="post" action="{% url 'delete-forum' forums.id %}">#}
                         {#                                {% csrf_token %}#}
-                        {#                                <button style="width: fit-content; margin: auto" class="" type="submit">Delete</button>#}
+                        {#                                <button style="width: fit-desc_min; margin: auto" class="" type="submit">Delete</button>#}
                         {#                            </form>#}
                         {#                        {% endif %}#}
 
@@ -77,5 +77,4 @@
         </table>
         {% include 'forums/pagination.html' %}
     </div>
-    <br><br>
 {% endblock %}

@@ -6,8 +6,8 @@ html {
 
 body {
     background-color: #393939;
-    /*width: fit-content;*/
-    /*width: -moz-fit-content;*/
+    /*width: fit-desc_min;*/
+    /*width: -moz-fit-desc_min;*/
     /*margin: auto;*/
     letter-spacing: 1px !important;
 
